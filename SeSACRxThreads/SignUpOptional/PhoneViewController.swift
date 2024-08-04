@@ -54,12 +54,7 @@ class PhoneViewController: UIViewController {
                 
                 
                 let isValid = text.count >= 10
-                if isValid {
-                    owner.nextButton.backgroundColor = .systemPink
-                } else {
-                    owner.nextButton.backgroundColor = .lightGray
-                }
-                
+                owner.nextButton.backgroundColor = isValid ? .systemPink : .lightGray
                 owner.nextButton.isEnabled = isValid
                 
                 //❓숫자에 대한 판별이 우선 -> 숫자에 대한 유효성을 통과했다면 그 다음에 글자 길이 판별해주고 싶다면?

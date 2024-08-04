@@ -57,3 +57,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 }
 
+extension SceneDelegate {
+    func changeRootVCToSearch() {
+        guard let window = self.window else { return }
+        let vc = UINavigationController(rootViewController: SearchViewController())
+        
+        window.rootViewController = vc
+    }
+}
+

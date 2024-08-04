@@ -45,12 +45,7 @@ class PasswordViewController: UIViewController {
                 //📍isValid가 false일 경우
                 //=> nextButton lightGray & 클릭할 수 없다, descriptionLabel로 상태를 알려준다
 
-                if isValid {
-                    owner.nextButton.backgroundColor = .systemPink
-                } else {
-                    owner.nextButton.backgroundColor = .lightGray
-                }
-                
+                owner.nextButton.backgroundColor = isValid ? .systemPink : .lightGray
                 owner.nextButton.isEnabled = isValid
                 owner.descriptionLabel.isHidden = isValid
             }
