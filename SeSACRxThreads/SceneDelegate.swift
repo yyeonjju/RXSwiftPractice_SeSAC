@@ -18,10 +18,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 //        let rootViewController = UINavigationController(rootViewController: SignInViewController())
         
-//        let rootViewController = UINavigationController(rootViewController: SignUpViewController())
+        let rootViewController = UINavigationController(rootViewController: SignUpViewController())
         
         
-        let rootViewController = UINavigationController(rootViewController: ShoppingListViewController())
+//        let rootViewController = UINavigationController(rootViewController: ShoppingListViewController())
          
         window?.rootViewController = rootViewController
         window?.makeKeyAndVisible()
