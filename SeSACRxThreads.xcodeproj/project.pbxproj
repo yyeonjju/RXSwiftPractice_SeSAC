@@ -34,8 +34,8 @@
 		7D16E6EC2C5FA39300971CB7 /* ShoppingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16E6EB2C5FA39300971CB7 /* ShoppingListViewController.swift */; };
 		7D16E6EE2C5FA43700971CB7 /* ShoppingListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16E6ED2C5FA43700971CB7 /* ShoppingListView.swift */; };
 		7D16E6F02C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16E6EF2C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift */; };
-		7DA039E82C60B30D00B024A0 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039E72C60B30D00B024A0 /* NicknameViewModel.swift */; };
 		7DA039EA2C60B36700B024A0 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */; };
+		7DA039EC2C60E75700B024A0 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,8 +84,8 @@
 		7D16E6EB2C5FA39300971CB7 /* ShoppingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewController.swift; sourceTree = "<group>"; };
 		7D16E6ED2C5FA43700971CB7 /* ShoppingListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListView.swift; sourceTree = "<group>"; };
 		7D16E6EF2C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
-		7DA039E72C60B30D00B024A0 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
+		7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,8 +234,8 @@
 		7DA039E62C60B2FC00B024A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				7DA039E72C60B30D00B024A0 /* NicknameViewModel.swift */,
 				7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */,
+				7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -391,8 +391,8 @@
 				7DA039EA2C60B36700B024A0 /* PhoneViewModel.swift in Sources */,
 				7D16E6F02C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift in Sources */,
 				04F6DC022C5B0D8200667F4D /* DetailViewController.swift in Sources */,
+				7DA039EC2C60E75700B024A0 /* BirthdayViewModel.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
-				7DA039E82C60B30D00B024A0 /* NicknameViewModel.swift in Sources */,
 				04F6DBFE2C5B0C0300667F4D /* SearchViewController.swift in Sources */,
 				04F6DC002C5B0C2200667F4D /* SearchTableViewCell.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,

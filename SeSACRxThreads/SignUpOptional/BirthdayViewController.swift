@@ -13,21 +13,21 @@ import RxCocoa
 class BirthdayViewController: UIViewController {
     
     let disposeBag = DisposeBag()
-    
+    let vm = BirthdayViewModel()
     
     //1️⃣ 이벤트를 방출하고 받는 두 가지 역할이 모두 필요함 => Subject
     //Subject는 onNext, OnComplete, OnError 이벤트 종류 모두 받지만
     //2️⃣ 이벤트 처리할 때 error나 complete이 발생하지 않는 작업. ex. UI의 업데이트
     //-> BehaviorRelay
-    let yearSubject = BehaviorRelay(value: "")
-    let monthSubject = BehaviorRelay(value: "")
-    let daySubject = BehaviorRelay(value: "")
+//    let yearSubject = BehaviorRelay(value: "")
+//    let monthSubject = BehaviorRelay(value: "")
+//    let daySubject = BehaviorRelay(value: "")
     
     
     //가입 가능한 나이인지
     //1️⃣ 이벤트 방출하고 처리하는 역할이 모두 필요
     //2️⃣ 이벤트 처리 시 UI 업데이트이기 때문에 error, complete 일어날 일 없음
-    let isAcceptableAge = BehaviorRelay(value: false)
+//    let isAcceptableAge = BehaviorRelay(value: false)
     
     
     let birthDayPicker: UIDatePicker = {
@@ -99,35 +99,26 @@ class BirthdayViewController: UIViewController {
     }
     
     private func bind() {
-        birthDayPicker.rx.date
-            .bind(with: self) { owner, date in
-                let dateComponents =  Calendar.current.dateComponents([.year, .month,.day], from: date)
-                owner.yearSubject.accept("\(dateComponents.year?.description ?? "-") 년")
-                owner.monthSubject.accept("\(dateComponents.month?.description ?? "-") 월")
-                owner.daySubject.accept("\(dateComponents.day?.description ?? "-") 일")
-                
-                
-                let ageComponents = Calendar.current.dateComponents([.year], from: date, to: Date())
-                let age = ageComponents.year!
-                owner.isAcceptableAge.accept(age>=17)
-                
-            }
-            .disposed(by: disposeBag)
+        let input = BirthdayViewModel.Input(
+            selectedDate: birthDayPicker.rx.date,
+            nextButtonTap : nextButton.rx.tap
+        )
+        let output = vm.transform(input: input)
         
         
         //label의 text 없데이트
-        yearSubject
+        output.yearSubject
             .bind(to: yearLabel.rx.text)
             .disposed(by: disposeBag)
-        monthSubject
+        output.monthSubject
             .bind(to: monthLabel.rx.text)
             .disposed(by: disposeBag)
-        daySubject
+        output.daySubject
             .bind(to: dayLabel.rx.text)
             .disposed(by: disposeBag)
         
         //유효성에 따른 UI 변화
-        isAcceptableAge
+        output.isAcceptableAge
             .bind(with: self) { owner, isAcceptable in
                 //infoLabel 업데이트
                 owner.infoLabel.textColor = isAcceptable ? .lightGray : .red
@@ -142,7 +133,7 @@ class BirthdayViewController: UIViewController {
         
         
         //가입하기 버튼 눌렀을 때
-        nextButton.rx.tap
+        output.pageTransition
             .bind(with: self) { owner, _ in
                 //1. 얼럿 컨트롤러
                 let alert = UIAlertController(title: "가입을 완료하시겠습니까?", message: nil, preferredStyle: .alert)
