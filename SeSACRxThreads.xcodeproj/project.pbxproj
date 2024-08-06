@@ -36,6 +36,7 @@
 		7D16E6F02C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D16E6EF2C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift */; };
 		7DA039EA2C60B36700B024A0 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */; };
 		7DA039EC2C60E75700B024A0 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */; };
+		7DA039F22C6227CE00B024A0 /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039F12C6227CE00B024A0 /* ShoppingListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		7D16E6EF2C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListTableViewCell.swift; sourceTree = "<group>"; };
 		7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
+		7DA039F12C6227CE00B024A0 /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +226,7 @@
 		7D16E6EA2C5FA30600971CB7 /* ShoppingList */ = {
 			isa = PBXGroup;
 			children = (
+				7DA039F02C6227C100B024A0 /* ViewModel */,
 				7D16E6EB2C5FA39300971CB7 /* ShoppingListViewController.swift */,
 				7D16E6ED2C5FA43700971CB7 /* ShoppingListView.swift */,
 				7D16E6EF2C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift */,
@@ -236,6 +239,14 @@
 			children = (
 				7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */,
 				7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7DA039F02C6227C100B024A0 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7DA039F12C6227CE00B024A0 /* ShoppingListViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -395,6 +406,7 @@
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				04F6DBFE2C5B0C0300667F4D /* SearchViewController.swift in Sources */,
 				04F6DC002C5B0C2200667F4D /* SearchTableViewCell.swift in Sources */,
+				7DA039F22C6227CE00B024A0 /* ShoppingListViewModel.swift in Sources */,
 				041280732AEFAD4B00972552 /* NicknameViewController.swift in Sources */,
 				0412806A2AEFA91E00972552 /* SignUpViewController.swift in Sources */,
 				041280712AEFAD3D00972552 /* PhoneViewController.swift in Sources */,
