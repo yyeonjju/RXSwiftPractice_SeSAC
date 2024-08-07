@@ -25,6 +25,15 @@ final class ShoppingListView : UIView {
         return tf
     }()
     
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
+    
+    static func layout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: 80, height: 40)
+        layout.scrollDirection = .horizontal
+        return layout
+    }
+    
     let addButton = {
         let btn = UIButton()
         btn.setTitle(" 추가 ", for: .normal)
@@ -49,6 +58,7 @@ final class ShoppingListView : UIView {
         
         configureSubView()
         configureLayout()
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +69,7 @@ final class ShoppingListView : UIView {
     // MARK: - ConfigureUI
     
     private func configureSubView() {
-        [searchbar, textField, addButton, tableView]
+        [searchbar, textField, collectionView, addButton, tableView]
             .forEach{
                 addSubview($0)
             }
@@ -84,8 +94,15 @@ final class ShoppingListView : UIView {
 //            make.height.equalTo(40)
         }
         
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(textField.snp.bottom)
+            make.horizontalEdges.equalTo(safeAreaLayoutGuide)
+            make.height.equalTo(50)
+        }
+
+        
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(textField.snp.bottom).offset(10)
+            make.top.equalTo(collectionView.snp.bottom).offset(10)
             make.horizontalEdges.bottom.equalTo(safeAreaLayoutGuide).inset(10)
         }
     }

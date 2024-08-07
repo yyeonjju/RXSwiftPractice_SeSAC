@@ -37,6 +37,7 @@
 		7DA039EA2C60B36700B024A0 /* PhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */; };
 		7DA039EC2C60E75700B024A0 /* BirthdayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */; };
 		7DA039F22C6227CE00B024A0 /* ShoppingListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039F12C6227CE00B024A0 /* ShoppingListViewModel.swift */; };
+		7DA039FF2C63815200B024A0 /* RecommendationItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DA039FE2C63815200B024A0 /* RecommendationItemCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		7DA039E92C60B36700B024A0 /* PhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneViewModel.swift; sourceTree = "<group>"; };
 		7DA039EB2C60E75700B024A0 /* BirthdayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewModel.swift; sourceTree = "<group>"; };
 		7DA039F12C6227CE00B024A0 /* ShoppingListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListViewModel.swift; sourceTree = "<group>"; };
+		7DA039FE2C63815200B024A0 /* RecommendationItemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendationItemCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +232,7 @@
 				7D16E6EB2C5FA39300971CB7 /* ShoppingListViewController.swift */,
 				7D16E6ED2C5FA43700971CB7 /* ShoppingListView.swift */,
 				7D16E6EF2C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift */,
+				7DA039FE2C63815200B024A0 /* RecommendationItemCollectionViewCell.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -403,6 +406,7 @@
 				7D16E6F02C5FA9DB00971CB7 /* ShoppingListTableViewCell.swift in Sources */,
 				04F6DC022C5B0D8200667F4D /* DetailViewController.swift in Sources */,
 				7DA039EC2C60E75700B024A0 /* BirthdayViewModel.swift in Sources */,
+				7DA039FF2C63815200B024A0 /* RecommendationItemCollectionViewCell.swift in Sources */,
 				041280242AEF9BAB00972552 /* AppDelegate.swift in Sources */,
 				04F6DBFE2C5B0C0300667F4D /* SearchViewController.swift in Sources */,
 				04F6DC002C5B0C2200667F4D /* SearchTableViewCell.swift in Sources */,

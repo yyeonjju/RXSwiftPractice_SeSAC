@@ -17,9 +17,12 @@ final class ShoppingListViewModel {
         ShoppingItem(isDone: false, title: "옷", isLiked: false)
     ]
     var searchKeyword : String?
-    let disposeBag = DisposeBag()
     lazy var outputListSubject = BehaviorSubject(value: shoppingData)
     
+    let recommendaionItemList = ["앰플", "크림", "토너", "콜라", "블러셔", "연고", "머리띠"]
+    lazy var outputRecommendaionItemList = Observable.just(recommendaionItemList)
+    
+    let disposeBag = DisposeBag()
     
     struct Input {
         let addButtonTap :  Observable<ControlProperty<String?>.Element>
@@ -29,10 +32,14 @@ final class ShoppingListViewModel {
         //(title값 전달받음)
         let checkboxButtonTap : PublishSubject<String>
         let isLikeButtonTap : PublishSubject<String>
+        
+        //컬렉션뷰 아이템 클릭되었을 때
+        let selectedRecommendationItemTitle : ControlEvent<String>
     }
     
     struct Output {
         let shoppingList : BehaviorSubject<[ShoppingItem]>
+        let recommendaionItemList : Observable<[String]>
     }
     
     func transform(input : Input) -> Output {
@@ -86,7 +93,23 @@ final class ShoppingListViewModel {
             }.disposed(by: disposeBag)
         
         
-        return Output(shoppingList: outputListSubject)
+        input.selectedRecommendationItemTitle
+            .bind(with: self) { owner, title in
+                owner.shoppingData.insert(
+                    ShoppingItem(isDone: false, title: title, isLiked: false),
+                    at: 0
+                )
+                
+                guard let keyword = owner.searchKeyword else{return}
+                owner.filterWithSearchKeyword(keyword)
+            }
+            .disposed(by: disposeBag)
+        
+        
+        return Output(
+            shoppingList: outputListSubject,
+            recommendaionItemList : outputRecommendaionItemList
+        )
     }
     
     

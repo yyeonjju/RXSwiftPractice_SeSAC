@@ -32,6 +32,7 @@ final class ShoppingListViewController : UIViewController {
         
         view.backgroundColor = .white
         viewManager.tableView.register(ShoppingListTableViewCell.self, forCellReuseIdentifier: ShoppingListTableViewCell.description())
+        viewManager.collectionView.register(RecommendationItemCollectionViewCell.self, forCellWithReuseIdentifier: RecommendationItemCollectionViewCell.description())
         
         bind()
     }
@@ -41,13 +42,15 @@ final class ShoppingListViewController : UIViewController {
         let checkboxButtonTap = PublishSubject<String>()
         let isLikeButtonTap = PublishSubject<String>()
         
+        
         let input = ShoppingListViewModel.Input(
             addButtonTap: viewManager.addButton.rx.tap
             .withLatestFrom(viewManager.textField.rx.text),
             searchBarText :  viewManager.searchbar.rx.text,
             
             checkboxButtonTap : checkboxButtonTap,
-            isLikeButtonTap : isLikeButtonTap
+            isLikeButtonTap : isLikeButtonTap,
+            selectedRecommendationItemTitle : viewManager.collectionView.rx.modelSelected(String.self)
         )
         let output = vm.transform(input: input)
         
@@ -70,6 +73,12 @@ final class ShoppingListViewController : UIViewController {
             }
             .disposed(by: disposeBag)
         
+        
+        output.recommendaionItemList
+            .bind(to: viewManager.collectionView.rx.items(cellIdentifier: RecommendationItemCollectionViewCell.description(), cellType: RecommendationItemCollectionViewCell.self)) {row, element, cell in
+                cell.label.text = element
+            }
+            .disposed(by: disposeBag)
     }
     
     
