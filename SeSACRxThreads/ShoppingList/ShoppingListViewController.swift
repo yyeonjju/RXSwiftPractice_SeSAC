@@ -37,10 +37,17 @@ final class ShoppingListViewController : UIViewController {
     }
     
     private func bind() {
+        //몇번쨰가 클릭되었는지 int에 대한 이벤트 발생
+        let checkboxButtonTap = PublishSubject<String>()
+        let isLikeButtonTap = PublishSubject<String>()
+        
         let input = ShoppingListViewModel.Input(
             addButtonTap: viewManager.addButton.rx.tap
             .withLatestFrom(viewManager.textField.rx.text),
-            search :  viewManager.searchbar.rx.text
+            searchBarText :  viewManager.searchbar.rx.text,
+            
+            checkboxButtonTap : checkboxButtonTap,
+            isLikeButtonTap : isLikeButtonTap
         )
         let output = vm.transform(input: input)
         
@@ -49,18 +56,16 @@ final class ShoppingListViewController : UIViewController {
                 
                 
                 cell.configureData(data: element)
-//                cell.checkBoxButton.rx.tap
-//                    .subscribe(with: self) { owner, _ in
-//                        owner.shoppingData[row].isDone.toggle()
-//                        owner.shoppingList.onNext(owner.shoppingData)
-//                    }
-//                    .disposed(by: cell.disposeBag)
-//                cell.isLikeButton.rx.tap
-//                    .subscribe(with: self) { owner, _ in
-//                        owner.shoppingData[row].isLiked.toggle()
-//                        owner.shoppingList.onNext(owner.shoppingData)
-//                    }
-//                    .disposed(by: cell.disposeBag)
+                cell.checkBoxButton.rx.tap
+                    .subscribe(with: self) { owner, _ in
+                        checkboxButtonTap.onNext(element.title)
+                    }
+                    .disposed(by: cell.disposeBag)
+                cell.isLikeButton.rx.tap
+                    .subscribe(with: self) { owner, _ in
+                        isLikeButtonTap.onNext(element.title)
+                    }
+                    .disposed(by: cell.disposeBag)
                 
             }
             .disposed(by: disposeBag)
